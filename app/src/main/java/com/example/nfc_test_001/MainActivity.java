@@ -4,6 +4,7 @@ import android.media.MediaParser;
 import android.media.MediaPlayer;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.nfc.tech.NfcF;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -68,6 +69,18 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
         //NFC規格
         String[] techList = tag.getTechList();
         Log.d("NFC_CHECK", "Tech List:" + Arrays.toString(techList));
+
+        //NFC-Fの中身
+        NfcF nfcF = NfcF.get(tag);
+        if (nfcF != null) {
+            // IDm
+            byte[] idm = tag.getId();
+            Log.d("NFC_CHECK", "IDm:" + bytesToHexString(idm));
+
+            //システムコード
+            byte[] systemCode = nfcF.getSystemCode();
+            Log.d("NFC_CHECK", "System Code:" + bytesToHexString(systemCode));
+        }
 
         // 音を鳴らす
         if(mediaPlayer != null) {
