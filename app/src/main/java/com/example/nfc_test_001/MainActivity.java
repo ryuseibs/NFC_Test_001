@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements NfcAdapter.ReaderCallback {
     private NfcAdapter nfcAdapter;
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
 
         // ログ出力
         Log.d("NFC_CHECK", "iPhone detected! ID:" + idString);
+
+        //NFC規格
+        String[] techList = tag.getTechList();
+        Log.d("NFC_CHECK", "Tech List:" + Arrays.toString(techList));
 
         // 音を鳴らす
         if(mediaPlayer != null) {
