@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements NfcAdapter.Reader
             // Reader Mode 有効化
             Bundle options = new Bundle();
             nfcAdapter.enableReaderMode(this,this,
-                    NfcAdapter.FLAG_READER_NFC_A |
-                            NfcAdapter.FLAG_READER_NFC_B |
+//                    NfcAdapter.FLAG_READER_NFC_A |
+//                            NfcAdapter.FLAG_READER_NFC_B |
                             NfcAdapter.FLAG_READER_NFC_F|
                             NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK |
                             NfcAdapter.FLAG_READER_NO_PLATFORM_SOUNDS,
